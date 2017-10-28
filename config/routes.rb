@@ -4,6 +4,11 @@ Rails.application.routes.draw do
 	resources :users do
 		resources :game
 	end	
+	
+	namespace :sessions do
+		post :create
+		delete :destroy
+	end
 
 
 
