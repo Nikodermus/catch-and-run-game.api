@@ -1,24 +1,25 @@
 class UsersController < ApplicationController
 
 	before_action :authenticate_user!, only: [:update, :destroy]
-
+	
 	def create
 		user = User.new(user_params)
 		if user.save
 			user.save
-			render_success email: => user[:email]
+			render_success(email: user[:email])
 		else
-			render_error message: => 'Wrong credentials, try again'
+			render_error 'Wrong credentials, try again'
 		end
-		
 	end
 
+	
 	def show
 		user = User.find_by email: user_params[:email]
 		if user
 			render_success user
 		else
-			render_error message: => 'Oops! User not found'
+			render_error 'Oops! User not found' 
+		end
 	end
 
 	def update
@@ -27,7 +28,7 @@ class UsersController < ApplicationController
 			user.update(user_params)
 			render_success user
 		else
-			render_error message: => 'Oops! User not found'
+			render_error 'Oops! User not found' 
 		end
 	end
 
@@ -37,14 +38,23 @@ class UsersController < ApplicationController
 			user.delete
 			render_success 
 		else
-			render_error message: => 'User couldn\'t be delete'
+			render_error "User couldn't be delete" 
+		end
+	end
+
+	def get_user
+		if current_user
+			puts current_user
+			render_success current_user.as_json(:except => [:password_digest, :img_path, :id])
+		else
+			render_error 'No user'
 		end
 	end
 
 	private
 
 	def user_params
-		params.require(:user).permit(:email, :password_digest)
+		params.require(:user).permit(:email, :password, :password_confirmation,:name, :nickname)
 	end
 
 	def authenticate_user!

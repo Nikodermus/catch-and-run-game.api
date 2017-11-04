@@ -5,12 +5,13 @@ class SessionsController < ApplicationController
 		if user and user.tok_auth(session_params[:password])
 		  render_success meta: { token: user.get_token, device_token: user.get_device_token}
 		else
-		  render_error "Couldn't authenticate the user.", status_code: 404
+		  render_error "Couldn't authenticate the user.", status: 404
 		end
 	end
 
 	def destroy
 	end
+
 
 	private
 

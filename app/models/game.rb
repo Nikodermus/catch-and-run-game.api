@@ -1,5 +1,4 @@
 class Game < ApplicationRecord
-  belongs_to :user, inverse_of :games
-
+  belongs_to :user
   enum difficulty: %w(easy normal hard)
 end

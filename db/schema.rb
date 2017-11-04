@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171025012056) do
+ActiveRecord::Schema.define(version: 20171102015256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "games", force: :cascade do |t|
-    t.integer "score" ,  default: 0
-    t.integer "difficulty",  default: 1
+    t.integer "score"
+    t.integer "difficulty"
     t.time "duration"
     t.string "img_path"
     t.bigint "user_id"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20171025012056) do
     t.string "email"
     t.string "nickname"
     t.text "img_path"
+    t.string "name"
   end
 
   add_foreign_key "games", "users"
