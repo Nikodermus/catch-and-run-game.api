@@ -5,10 +5,9 @@ class UsersController < ApplicationController
 	def create
 		user = User.new(user_params)
 		if user.save
-			user.save
-			render_success(email: user[:email])
+			render_success {}
 		else
-			render_error 'Wrong credentials, try again'
+			render_error user.errors.full_messages
 		end
 	end
 
@@ -44,7 +43,6 @@ class UsersController < ApplicationController
 
 	def get_user
 		if current_user
-			puts current_user
 			render_success current_user.as_json(:except => [:password_digest, :img_path, :id])
 		else
 			render_error 'No user'

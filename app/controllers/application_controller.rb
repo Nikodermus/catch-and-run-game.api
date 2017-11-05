@@ -4,7 +4,7 @@ class ApplicationController < ActionController::API
 
   
 	def current_user
-	  @current_user ||= User.validate_access(token: request.headers["HTTP_APP_TOKEN"]) #TODO On front should be APP-TOKEN
+	  @current_user ||= User.validate_access(token: request.headers["HTTP_APP_TOKEN"])
 	end
   
 	def user_signed_in?
