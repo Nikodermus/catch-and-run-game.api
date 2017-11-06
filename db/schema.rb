@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20171102015256) do
 
   create_table "games", force: :cascade do |t|
     t.integer "score"
-    t.integer "difficulty"
+    t.integer "difficulty", default: 1
     t.integer "duration"
     t.string "img_path"
     t.bigint "user_id"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20171102015256) do
     t.string "password_digest", default: "", null: false
     t.string "email"
     t.string "nickname"
-    t.text "img_path"
+    t.text "img_path", default: "http://game.dakio.co/assets/images/default.jpg"
     t.string "name"
   end
 

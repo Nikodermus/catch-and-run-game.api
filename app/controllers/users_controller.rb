@@ -5,7 +5,8 @@ class UsersController < ApplicationController
 	def create
 		user = User.new(user_params)
 		if user.save
-			render_success {}
+			user.tok_auth(user_params[:password])
+			render_success meta: {token: user.get_token, device_token: user.get_device_token}
 		else
 			render_error user.errors.full_messages
 		end
@@ -43,9 +44,25 @@ class UsersController < ApplicationController
 
 	def get_user
 		if current_user
-			render_success user: current_user.as_json(:except => [:password_digest, :img_path])
+			user = current_user
+			user.create_tok
+			token = user.get_token
+			render_success user: user.as_json(:except => [:password_digest, :img_path]), meta: {
+				token: token
+			}
 		else
 			render_error 'No user'
+		end
+	end
+
+	def my_profile
+		if current_user
+			user = current_user
+			latest_games = user.games.order(created_at: :desc).first(10)
+			best_games =  user.games.order(score: :desc, duration: :asc).first(10)
+			render_success user: user.as_json(:except => [:password_digest]), latest_games: latest_games.as_json, best_games: best_games.as_json
+		else
+			render_error "User isn't logged in!"
 		end
 	end
 

@@ -9,4 +9,6 @@ Rails.application.routes.draw do
 	end
 
 	get 'current_user', to: 'users#get_user'	
+	get 'my_profile', to: 'users#my_profile'
+		
 end

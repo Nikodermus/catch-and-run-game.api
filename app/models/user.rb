@@ -5,7 +5,7 @@ class User < ApplicationRecord
 	}
 	validates :email, uniqueness: true, format: {
 		with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i,
-		message: 'Invalid email format'
+		message: 'Invalid format'
 	}
 	validates :nickname, length:{
 		in: 4..12
