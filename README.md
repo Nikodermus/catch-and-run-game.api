@@ -54,20 +54,22 @@ Rails API Back-end Structure for 2D Game. Play it [here](http://game.dakio.co) o
 	--- x Users will be able to play as guest if there's no logged-in user    
 	--- x User can sign up with e-mail, password
 	--- x User can log in with e-mail, password    
-    --- x Users will be authenticated through session and device tokens
+  --- x Users will be authenticated through session and device tokens
 	--- x User can log out, thus destroying tokens
-    --- x Users will have a "My Profile" page with their data and games
+
+  --- x Users will have a "My Profile" page with their data and games
 	--- x User can add and modify nickname, name and picture in "My Profile"
 	--- x "My Profile" will show only 10 latest games, and 10 best games for the user
 	--- x Games can be deleted in the "My Profile" page with a confirmation
-    --- x Account can be deleted with password confirmation in the "My Profile" page
-    --- x Deleted accounts will destroy their games and scores if they appear in the leaderboards 
+  --- x Account can be deleted with password confirmation in the "My Profile" page
+  --- x Deleted accounts will destroy their games and scores if they appear in the leaderboards 
 
 
 
 ### Leaderboard
     --- x Will show 10 best global scores 
     --- x Leaderboard can be sorted by difficulty
+
 
 ##### Note: When I refer to two elements "touching" each other, it refers when the images of the images overlaps due to have a shared position
 
