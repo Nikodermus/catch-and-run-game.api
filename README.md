@@ -3,7 +3,8 @@
 
 
 
-Rails API Back-end Structure for 2D Game. Play it [here](http://game.dakio.co) once released! 
+Rails API Back-end Structure for 2D Game. Play it now in [game.dakio.co](http://game.dakio.co)!
+
 
 ## In-Game Features   
 	--- ✓ Main Title Screen will load all the images necessary for the game to be playable and allow user to chose dificulty
@@ -32,37 +33,37 @@ Rails API Back-end Structure for 2D Game. Play it [here](http://game.dakio.co) o
 ### New In-Game Features
 	--- x Bind player sprite to change based on the keys hold to reflect where the player is heading to
 	--- x Bind monster sprite to change based on the keys hold to reflect where the monster is heading to 
-	--- x Proyectiles will be from the player position towards the mouse-pointer location each second
-	--- x Monster HP will decrease when projectiles hit it  
-	--- x Monster will disappear when its HP arrives to 0 
+	--- ✓ Proyectiles will be from the player position towards the mouse-pointer location each second
+	--- ✓ Monster HP will decrease when projectiles hit it  
+	--- ✓ Monster will disappear when its HP arrives to 0 
 	--- x Weapons will appear randomly each 5 levels, changing projectiles look and damage permanently  
 	--- x Weapons available will be three:
 		1. Firegun: Damage x2
 		2. Fist: No projectiles will be shot until the player pick-up another weapon
-		3. Laser-gun: Projectiles shot each half second   
+		3. Laser-gun: Shoot twice as large projectiles   
+
 
 
 
 ### Games
-    --- x Once the game is finished will be taken an screenshot of the page that will be used as image    
-    --- x Game will be saved once finished with [Score, duration, difficulty and image]    
-    --- x Game will be added to the current user (Even guest)    
+    --- ✓ Once the game is finished will be taken an screenshot of the page that will be used as image    
+    --- ✓ Game will be saved once finished with [Score, duration, difficulty and image]    
+    --- ✓ Game will be added to the current user --- x (Even guest)    
 
 
 
 ### Users and Scores
-	--- x Users will be able to play as guest if there's no logged-in user    
-	--- x User can sign up with e-mail, password
-	--- x User can log in with e-mail, password    
-  --- x Users will be authenticated through session and device tokens
+	--- ✓ Users will be able to play as guest if there's no logged-in user    
+	--- ✓ User can sign up with e-mail, password
+	--- ✓ User can log in with e-mail, password    
+    --- ✓ Users will be authenticated through session and device tokens
 	--- x User can log out, thus destroying tokens
-
-  --- x Users will have a "My Profile" page with their data and games
+    --- ✓ Users will have a "My Profile" page with their data and games
 	--- x User can add and modify nickname, name and picture in "My Profile"
-	--- x "My Profile" will show only 10 latest games, and 10 best games for the user
+	--- ✓ "My Profile" will show only 10 latest games, and 10 best games for the user
 	--- x Games can be deleted in the "My Profile" page with a confirmation
-  --- x Account can be deleted with password confirmation in the "My Profile" page
-  --- x Deleted accounts will destroy their games and scores if they appear in the leaderboards 
+    --- x Account can be deleted with password confirmation in the "My Profile" page
+    --- x Deleted accounts will destroy their games and scores if they appear in the leaderboards 
 
 
 
