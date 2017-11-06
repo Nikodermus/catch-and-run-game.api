@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20171102015256) do
   create_table "games", force: :cascade do |t|
     t.integer "score"
     t.integer "difficulty"
-    t.time "duration"
+    t.integer "duration"
     t.string "img_path"
     t.bigint "user_id"
     t.datetime "created_at", null: false

@@ -43,7 +43,7 @@ class UsersController < ApplicationController
 
 	def get_user
 		if current_user
-			render_success current_user.as_json(:except => [:password_digest, :img_path, :id])
+			render_success user: current_user.as_json(:except => [:password_digest, :img_path])
 		else
 			render_error 'No user'
 		end

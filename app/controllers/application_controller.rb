@@ -28,20 +28,20 @@ class ApplicationController < ActionController::API
 
 	def render_json(object, options = {})
 		status = options.delete(:status)
-		render json: { data: object}.merge(options) , status: status ? status : 200 if !meta
-		render json: { data: object}.merge(options).merge(meta) , status: status ? status : 200 if meta
+		render json: { data: object}.merge(options) , status: status ? status : 200 and return if !meta
+		render json: { data: object}.merge(options).merge(meta) , status: status ? status : 200 and return if meta
 
 	end
 
 	def render_success(options = {})
-		render json: { success: true }.merge(options), status: status ? status : 200 if !meta
-		render json: { success: true }.merge(options).merge(meta) , status: status ? status : 200 if meta
+		render json: { success: true }.merge(options), status: status ? status : 200 and return if !meta
+		render json: { success: true }.merge(options).merge(meta) , status: status ? status : 200 and return if meta
 	end
 
 	def render_error(message, options = {})
 		status = options.delete(:status)
-		render json: { success: false , message: message}.merge(options), status: status ? status : 500 if !meta
-		render json: { success: false , message: message}.merge(options).merge(meta), status: status ? status : 500 if meta
+		render json: { success: false , message: message}.merge(options), status: status ? status : 500 and return if !meta
+		render json: { success: false , message: message}.merge(options).merge(meta), status: status ? status : 500 and return if meta
 	end
 
 	def meta

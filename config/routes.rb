@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
 	resources :users do
-		resource :game
+		resources :games
 	end	
 	
 	namespace :sessions do
@@ -10,11 +8,5 @@ Rails.application.routes.draw do
 		delete :destroy
 	end
 
-	get 'current_user', to: 'users#get_user'
-
-
-
-
-	
-	
+	get 'current_user', to: 'users#get_user'	
 end
