@@ -17,6 +17,18 @@ class GamesController < ApplicationController
 		end
 	end
 
+	def leaderboard
+		games = Game.order(score: :desc, duration: :asc).first(10)
+	
+		users = []
+
+		games.each do |game|
+			users << User.find_by(id: game[:user_id])[:nickname]
+		end
+
+		render_success games: games, users: users
+	end
+
 	def update
 		if current_user
 			game = Game.find_by id: game_params[:id]
