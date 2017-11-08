@@ -10,5 +10,6 @@ Rails.application.routes.draw do
 
 	get 'current_user', to: 'users#get_user'	
 	get 'my_profile', to: 'users#my_profile'
+	get 'leaderboard', to: 'games#leaderboard'
 		
 end

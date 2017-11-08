@@ -10,8 +10,14 @@ class SessionsController < ApplicationController
 	end
 
 	def destroy
-		
+		if current_user
+			#UserTok.find_by(device_token: request.headers["HTTP_APP_TOKEN"]).get_device_token
+			render_success
+		else
+			render_error 'Something went wrong'
+		end
 	end
+	
 
 
 	private
